@@ -35,7 +35,7 @@ import java.util.Map;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private final String[] PUBLIC_ENDPOINTS = { "/users", "/auth/**" };
+    private final String[] PUBLIC_ENDPOINTS = { "/users", "/auth/**", "/", "/playlists/**" };
 
     @Value("${jwt.signerKey}")
     private String signerKey;
