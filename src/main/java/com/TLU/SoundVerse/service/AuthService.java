@@ -65,7 +65,7 @@ public class AuthService {
             JWTClaimsSet jwtClaimsSet = new JWTClaimsSet.Builder()
                     .issuer("SoundVerse.com")
                     .issueTime(new Date())
-                    .expirationTime(new Date(Instant.now().plus(1, ChronoUnit.DAYS).toEpochMilli()))
+                    .expirationTime(new Date(Instant.now().plus(5, ChronoUnit.DAYS).toEpochMilli()))
                     .claim("id", String.valueOf(id))
                     .claim("email", email)
                     .claim("username", username)

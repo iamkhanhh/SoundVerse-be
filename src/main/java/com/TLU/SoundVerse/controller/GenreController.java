@@ -3,6 +3,9 @@ package com.TLU.SoundVerse.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.TLU.SoundVerse.dto.request.CreateGenreDto;
 import com.TLU.SoundVerse.dto.response.ApiResponse;
+import com.TLU.SoundVerse.entity.Genre;
 import com.TLU.SoundVerse.service.GenreService;
 
 import lombok.AccessLevel;
@@ -29,6 +33,18 @@ public class GenreController {
     apiResponse.setStatus("success");
     apiResponse.setMessage("Create new genre successfilly");
     apiResponse.setData(genre_saved);
+    return apiResponse;
+  }
+
+  @GetMapping()
+  public ApiResponse<List<Genre>> getListOfGenre() {
+    List<Genre> genres = genreService.getListOfGenre();
+
+    ApiResponse<List<Genre>> apiResponse = new ApiResponse<List<Genre>>();
+
+    apiResponse.setStatus("success");
+    apiResponse.setMessage("Login successfilly");
+    apiResponse.setData(genres);
     return apiResponse;
   }
 }

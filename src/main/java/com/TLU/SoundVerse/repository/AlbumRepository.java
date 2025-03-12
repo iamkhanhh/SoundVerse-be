@@ -10,4 +10,5 @@ import com.TLU.SoundVerse.entity.Album;
 @Repository
 public interface AlbumRepository extends JpaRepository<Album, Long> {
     List<Album> findByTitleContainingIgnoreCase(String keyword);
+    List<Album> findByArtistId(Integer artistId);
 }
